@@ -1,0 +1,661 @@
+/* ================ 
+   BASE STYLES & RESETS
+   ================ */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --terminal-green: lime;
+    --terminal-shadow: rgba(0, 255, 0, 0.4);
+    --header-height: 60px;
+    --header-height-mobile: 55px;
+    --icon-size: 36px;
+    --icon-size-mobile: 32px;
+}
+
+body {
+    font-family: 'Ubuntu', 'Roboto', sans-serif;
+    color: #ffffff;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+/* ================
+   THEME DEFINITIONS
+   ================ */
+/* Default Dark Theme */
+body.desktop {
+    background-color: #000000;
+}
+
+/* Light Theme */
+body.light-theme {
+    background-color: #f9f9f9;
+    color: #111;
+}
+
+/* Terminal Active Mode (overrides both themes) */
+body.terminal-active {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+/* ================
+   UTILITY CLASSES
+   ================ */
+.invert {
+    filter: invert(1);
+    transition: filter 0.3s ease;
+}
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/noise.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ================
+   HEADER COMPONENT
+   ================ */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+}
+
+.logo-link, .account-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+/* Logo color treatments */
+body:not(.light-theme) .logo {
+    filter: invert(1);
+}
+
+body.terminal-active .logo {
+    filter: 
+        brightness(0)
+        saturate(100%)
+        invert(67%)
+        sepia(63%)
+        saturate(500%)
+        hue-rotate(70deg)
+        brightness(90%)
+        contrast(90%) !important;
+}
+
+/* ================
+   DESKTOP ICONS
+   ================ */
+.desktop-icons {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    margin-top: var(--header-height);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.icon {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-decoration: none;
+    color: inherit;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    transform: translate(-50%, -50%);
+}
+
+.icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.icon:active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.icon img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-bottom: 5px;
+    object-fit: contain;
+}
+
+.icon span {
+    font-size: 11px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    word-break: break-word;
+    max-width: 100%;
+}
+
+/* ================
+   TERMINAL WINDOW
+   ================ */
+.terminal-window {
+    position: fixed;
+    width: 600px;
+    max-width: 90%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border: 1px solid var(--terminal-green);
+    box-shadow: 0 0 15px var(--terminal-shadow);
+    z-index: 1000;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--terminal-green);
+    font-family: 'Courier New', monospace;
+    overflow: hidden;
+}
+
+.window-header {
+    padding: 8px 12px;
+    background-color: #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--terminal-green);
+    color: var(--terminal-green);
+    text-shadow: 0 0 5px var(--terminal-shadow);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--terminal-green);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.terminal-content {
+    padding: 15px;
+    height: calc(100% - 37px);
+    overflow-y: auto;
+}
+
+.terminal-line {
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.prompt {
+    color: yellow;
+    margin-right: 8px;
+}
+
+.command {
+    flex-grow: 1;
+    outline: none;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+.directory-entry {
+    margin-left: 20px;
+    cursor: pointer;
+    padding: 2px 5px;
+}
+
+.directory-entry:hover {
+    background-color: rgba(0, 255, 0, 0.1);
+}
+
+.emoji-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* ================
+   MENU COMPONENT
+   ================ */
+.menu-container {
+    position: relative;
+    z-index: 200;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    line-height: 1;
+    filter: invert(1);
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    padding: 6px 0;
+    list-style: none;
+    min-width: 130px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.menu-dropdown li {
+    padding: 6px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.menu-dropdown li a,
+.menu-dropdown li button {
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    font: inherit;
+    cursor: pointer;
+    padding: 0;
+    color: white;
+}
+
+.menu-dropdown li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-container.active .menu-dropdown {
+    display: block;
+}
+
+/* ================
+   LIGHT THEME OVERRIDES
+   ================ */
+body.light-theme .icon span,
+body.light-theme .directory-entry {
+    color: #111;
+}
+
+body.light-theme .menu-dropdown {
+    background-color: white;
+    color: black;
+}
+
+body.light-theme .menu-dropdown li a,
+body.light-theme .menu-dropdown li button {
+    color: black;
+}
+
+body.light-theme .menu-dropdown li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .invert {
+    filter: invert(0);
+}
+
+body.light-theme .copyright {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+/* Theme toggle button states */
+body.light-theme .menu-dropdown li button#theme-toggle {
+    background-color: black;
+    color: white;
+}
+
+body.light-theme .menu-dropdown li button#theme-toggle:hover {
+    background-color: #222;
+}
+
+/* ================
+   TERMINAL ACTIVE OVERRIDES
+   ================ */
+body.terminal-active .menu-container {
+    display: none !important;
+}
+
+body.terminal-active.light-theme {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+body.terminal-active.light-theme .icon span,
+body.terminal-active.light-theme .directory-entry,
+body.terminal-active.light-theme .copyright {
+    color: #fff !important;
+}
+
+body.terminal-active.light-theme .invert {
+    filter: invert(1) !important;
+}
+
+body.terminal-active.light-theme .menu-dropdown {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    color: #fff !important;
+}
+
+body.terminal-active.light-theme .menu-dropdown li a,
+body.terminal-active.light-theme .menu-dropdown li button {
+    color: #fff !important;
+}
+
+body.terminal-active.light-theme .menu-dropdown li:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.terminal-active.light-theme .menu-dropdown li button#theme-toggle {
+    background: none !important;
+    color: white !important;
+    cursor: not-allowed !important;
+    opacity: 0.4 !important;
+}
+
+body.terminal-active.light-theme .terminal-output .directory-entry {
+    color: lime !important;
+}
+
+/* ================
+   ICON INVERSION FOR DARK THEME excluding terminal and Oasis
+   ================ */
+body:not(.light-theme) .desktop-icons img:not(.no-invert),
+body:not(.light-theme) .directory-entry img:not(.no-invert) {
+    filter: invert(1);
+}
+
+/* ================
+   ANIMATIONS
+   ================ */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ================
+   MISC COMPONENTS
+   ================ */
+.copyright {
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    z-index: 100;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+}
+
+/* ================
+   RESPONSIVE ADJUSTMENTS
+   ================ */
+@media (max-width: 768px) {
+    :root {
+        --header-height: var(--header-height-mobile);
+        --icon-size: var(--icon-size-mobile);
+    }
+
+    .icon {
+        width: 70px;
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .terminal-window {
+        height: 70vh;
+    }
+}
+
+/* Visual Poetry */
+.visual-poetry {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* pour ne pas bloquer l'interaction avec les icônes */
+  z-index: 2;
+}
+
+.poem-line {
+  position: absolute;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+body.light-theme .poem-line {
+  color: #111;
+  text-shadow: none;
+}
+
+/* Musique */
+.musique-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: calc(var(--header-height) + 20px);
+    gap: 40px;
+    overflow-y: auto;
+    height: calc(100vh - var(--header-height) - 30px);
+}
+
+.audio-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 320px;
+    text-align: center;
+}
+
+.audio-icon .icon-img {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 8px;
+    filter: invert(1);
+}
+
+body.light-theme .audio-icon .icon-img {
+    filter: none;
+}
+
+.icon-label {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.audio-player iframe {
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Contact page */
+.contact-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.about-section {
+  margin-bottom: 3rem;
+}
+
+.about-section h1,
+.form-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.about-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form select,
+form textarea,
+form button {
+  padding: 0.8rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background-color: #333;
+}
+
+/* ================
+   TEXT PAGE LAYOUT
+   ================ */
+body.textpage {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: 'Courier New', monospace;
+  overflow-y: auto;
+}
+
+.text-wrapper {
+  max-width: 750px;
+  width: 100%;
+  text-align: center;
+}
+
+.text-title {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #ddd;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+.text-sheet {
+  background: #111;
+  border: 2px dotted #fff;
+  border-radius: 12px;
+  padding: 32px 40px;
+  box-shadow:
+    0 4px 15px rgba(255, 255, 255, 0.2),
+    inset 0 0 12px rgba(255, 255, 255, 0.05);
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .text-title {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .text-sheet {
+    padding: 20px 25px;
+    font-size: 1rem;
+  }
+}
+
+/* FULLSCREEN VIDEO STYLES */
+.coming-soon-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.coming-soon-video video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Theme inversion - NOW MORE SPECIFIC */
+body.desktop:not(.light-theme) .coming-soon-video video {
+  filter: invert(1);
+}
+
+/* Mobile adaptation */
+@media (orientation: portrait) {
+  .coming-soon-video video { width: 100%; height: auto; }
+}
+@media (orientation: landscape) {
+  .coming-soon-video video { width: auto; height: 100%; }
+}
