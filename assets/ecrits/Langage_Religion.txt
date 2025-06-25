@@ -1,0 +1,3 @@
+The langage is the main structure by which we process the world.
+For langages are what allow us to describe the world, to analyse the world and to make sense of it.
+What you speak is what you believe.
