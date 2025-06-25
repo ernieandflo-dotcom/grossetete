@@ -24,6 +24,11 @@ body {
     position: relative;
 }
 
+html, body {
+    height: auto;
+    overflow-y: auto;
+  }  
+
 /* ================
    THEME DEFINITIONS
    ================ */
@@ -513,7 +518,9 @@ body.light-theme .audio-icon .icon-img {
 .contact-page {
   padding: 2rem;
   max-width: 800px;
-  margin: 0 auto;
+  margin-top: var(--header-height, 70px);
+  margin-left: auto;
+  margin-right: auto;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
@@ -659,3 +666,102 @@ body.desktop:not(.light-theme) .coming-soon-video video {
 @media (orientation: landscape) {
   .coming-soon-video video { width: auto; height: 100%; }
 }
+
+.tip-cup-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 48px;
+  z-index: 5000;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.tip-cup-button img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: invert(1);
+}
+
+body.light-theme .tip-cup-button img {
+  filter: none;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(10deg); }
+  30% { transform: rotate(-8deg); }
+  45% { transform: rotate(6deg); }
+  60% { transform: rotate(-4deg); }
+  75% { transform: rotate(2deg); }
+}
+
+.tip-cup-button.wiggle {
+  animation: wiggle 1s ease;
+}
+
+/* SUBMENU STYLES */
+.menu-dropdown .has-submenu {
+    position: relative;
+  }
+  
+  .menu-dropdown .has-submenu .submenu-toggle {
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .menu-dropdown .submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    list-style: none;
+    padding: 6px 0;
+    min-width: 180px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  .menu-dropdown .submenu li {
+    padding: 6px 16px;
+  }
+  
+  .menu-dropdown .submenu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .menu-dropdown .submenu li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .menu-dropdown .has-submenu:hover .submenu {
+    display: block;
+  }
+  
+  /* LIGHT THEME override for submenu */
+  body.light-theme .menu-dropdown .submenu {
+    background-color: white;
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  body.light-theme .menu-dropdown .submenu li a {
+    color: black;
+  }
+  
+  body.light-theme .menu-dropdown .submenu li:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
