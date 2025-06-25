@@ -1,31 +1,27 @@
-// textviewer.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    const target = document.getElementById('text-content');
-  
-    function getQueryParam(param) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(param);
-    }
-  
-    const filePath = getQueryParam('file');
-  
-    if (!target) return;
-  
-    if (filePath) {
-      fetch(filePath)
-        .then(response => {
-          if (!response.ok) throw new Error("Erreur de chargement");
-          return response.text();
-        })
-        .then(text => {
-          target.textContent = text;
-        })
-        .catch(err => {
-          target.textContent = "Fichier introuvable ou erreur de chargement.";
-        });
-    } else {
-      target.textContent = "Aucun fichier spécifié.";
-    }
-  });
-  
+  const params = new URLSearchParams(window.location.search);
+  const filePath = params.get('file');
+  const container = document.getElementById('file-content');
+
+  if (!filePath || !container) {
+    container.textContent = "Fichier introuvable ou chemin non précisé.";
+    return;
+  }
+
+  fetch(filePath)
+    .then(response => {
+      if (!response.ok) throw new Error("Échec du chargement");
+      return response.text();
+    })
+    .then(text => {
+      // Preserve line breaks safely
+      const escaped = text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      container.innerHTML = '<pre>' + escaped + '</pre>';
+    })
+    .catch(() => {
+      container.textContent = "Fichier introuvable ou erreur de chargement.";
+    });
+});
