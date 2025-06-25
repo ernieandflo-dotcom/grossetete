@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Texte | Grosse-Tête</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="desktop">
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Minimal Header -->
+  <header class="header">
+    <a href="index.html" class="logo-link" id="logo-link">
+        <img src="assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+    </a>
+    
+    <div class="menu-container invert">
+        <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+        <ul class="menu-dropdown" id="menu-dropdown">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="musique.html">Musique</a></li>
+          
+            <li class="has-submenu">
+              <button class="submenu-toggle">InnerVerse ▸</button>
+              <ul class="submenu">
+                <li><a href="bioartiste.html">Biographie d'artiste</a></li>
+                <li><a href="ecrits.html">Écrits</a></li>
+                <li><a href="exclu.html">Exclusivités audio</a></li>
+                <li><a href="quebecness.html">Québec selon Ness</a></li>
+              </ul>
+            </li>
+          
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle">Thème clair</button></li>
+        </ul>
+    </div>
+  </header>
+
+  <!-- Text Viewer -->
+  <main class="text-viewer">
+    <div class="text-frame">
+      <pre id="text-content">Chargement…</pre>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="copyright">
+    © 2023 Grosse-Tête. Tous droits réservés.
+  </footer>
+
+  <!-- JS Files -->
+  <script src="js/menu.js" defer></script>
+  <script src="js/textviewer.js" defer></script>
+</body>
+</html>
