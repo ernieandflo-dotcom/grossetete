@@ -789,3 +789,33 @@ body.light-theme .tip-cup-button img {
     margin-bottom: 1rem;
     line-height: 1.6;
   }
+
+  /* Démarche artistique button */
+  .toggle-section-button {
+  display: block;
+  margin: 0 auto 2rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.toggle-section-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+body.light-theme .toggle-section-button {
+  border-color: #111;
+  color: #111;
+}
+
+body.light-theme .toggle-section-button:hover {
+  background-color: #111;
+  color: #fff;
+}
