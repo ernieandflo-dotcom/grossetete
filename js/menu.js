@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.coming-soon-video video').forEach(video => {
             video.style.display = 'none';
             setTimeout(() => {
-            video.style.display = 'block';
+                video.style.display = 'block';
             }, 50);
         });
     }
@@ -99,4 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.setAttribute('aria-haspopup', 'true');
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-controls', 'menu-dropdown');
+
+    // Tip Cup Wiggle Logic
+    if (!document.body.classList.contains('no-tip')) {
+        const tipCup = document.getElementById('tip-cup');
+        if (tipCup) {
+            function triggerWiggle() {
+                tipCup.classList.add('wiggle');
+                setTimeout(() => tipCup.classList.remove('wiggle'), 1000);
+            }
+
+            // First wiggle immediately on load
+            triggerWiggle();
+
+            // Then every 2 minutes
+            setInterval(triggerWiggle, 1 * 10 * 1000);
+        }
+    }
 });
