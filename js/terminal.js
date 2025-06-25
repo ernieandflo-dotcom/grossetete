@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Directory Configuration
     const directoryMap = {
-        'Bio Artiste': 'bioartiste.html',
+        'Biographie Artiste': 'bioartiste.html',
         'Écrits': 'ecrits.html',
         'Exclusivités Audio': 'exclu.html',
         'Québec selon Ness': 'quebecness.html',
