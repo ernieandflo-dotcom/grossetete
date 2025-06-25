@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Écrits</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body class="desktop">
+  <div class="noise-overlay"></div>
+
+  <!-- Minimal Header -->
+  <header class="header">
+    <a href="index.html" class="logo-link" id="logo-link">
+        <img src="assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+    </a>
+    
+    <div class="menu-container invert">
+        <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+        <ul class="menu-dropdown" id="menu-dropdown">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="musique.html">Musique</a></li>
+          
+            <li class="has-submenu">
+              <button class="submenu-toggle">InnerVerse ▸</button>
+              <ul class="submenu">
+                <li><a href="bioartiste.html">Biographie d'artiste</a></li>
+                <li><a href="ecrits.html">Écrits</a></li>
+                <li><a href="exclu.html">Exclusivités audio</a></li>
+                <li><a href="quebecness.html">Québec selon Ness</a></li>
+              </ul>
+            </li>
+          
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle">Thème clair</button></li>
+        </ul>
+    </div>
+  </header>
+
+  <main class="desktop-icons">
+    <a href="assets/ecrits/4-21_Rainy Day.txt" class="icon" style="left: 15%; top: 20%;">
+      <img src="assets/items/textfile.png" alt="Texte 1"/>
+      <span>(4/21) - Rainy Day</span>
+    </a>
+
+    <a href="assets/ecrits/Écrire.txt" class="icon" style="left: 35%; top: 25%;">
+      <img src="assets/items/textfile.png" alt="Texte 2"/>
+      <span>Écrire</span>
+    </a>
+
+    <a href="assets/ecrits/Cauchemar.txt" class="icon" style="left: 55%; top: 18%;">
+      <img src="assets/items/textfile.png" alt="Texte 3"/>
+      <span>Cauchemar</span>
+    </a>
+
+    <a href="assets/ecrits/8-21_A Wandering Boy.txt" class="icon" style="left: 75%; top: 30%;">
+      <img src="assets/items/textfile.png" alt="Texte 4"/>
+      <span>(8/21) - A Wandering Bo</span>
+    </a>
+
+    <a href="assets/ecrits/LaPiste_20210325.txt" class="icon" style="left: 20%; top: 50%;">
+      <img src="assets/items/textfile.png" alt="Texte 5"/>
+      <span>LaPiste_20210325</span>
+    </a>
+
+    <a href="assets/ecrits/Ness.txt" class="icon" style="left: 40%; top: 60%;">
+      <img src="assets/items/textfile.png" alt="Texte 6"/>
+      <span>Ness</span>
+    </a>
+
+    <a href="assets/ecrits/LaPiste_20221101.txt" class="icon" style="left: 60%; top: 55%;">
+      <img src="assets/items/textfile.png" alt="Texte 7"/>
+      <span>LaPiste_20221101</span>
+    </a>
+
+    <a href="assets/ecrits/GentleHeart.txt" class="icon" style="left: 80%; top: 45%;">
+      <img src="assets/items/textfile.png" alt="Texte 8"/>
+      <span>Gentle Heart</span>
+    </a>
+  </main>
+
+  <footer class="copyright">
+    © 2023 Grosse-Tête. Tous droits réservés.
+  </footer>
+
+  <a href="https://buymeacoffee.com/grossetete" 
+        class="tip-cup-button" 
+        id="tip-cup" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        <img src="assets/items/logoBMC-cup.png" alt="Soutenir">
+  </a>
+
+  <script src="js/menu.js" defer></script>
+  <script src="js/desktop.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grosse-Tête - En construction</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="desktop">
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Minimal Header -->
+    <header class="header">
+        <a href="index.html" class="logo-link" id="logo-link">
+            <img src="assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+        </a>
+        
+        <div class="menu-container invert">
+            <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+            <ul class="menu-dropdown" id="menu-dropdown">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="musique.html">Musique</a></li>
+              
+                <li class="has-submenu">
+                  <button class="submenu-toggle">InnerVerse ▸</button>
+                  <ul class="submenu">
+                    <li><a href="bioartiste.html">Biographie d'artiste</a></li>
+                    <li><a href="ecrits.html">Écrits</a></li>
+                    <li><a href="exclu.html">Exclusivités audio</a></li>
+                    <li><a href="quebecness.html">Québec selon Ness</a></li>
+                  </ul>
+                </li>
+              
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="theme-toggle">Thème clair</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Construction Message -->
+    <main class="desktop-icons" style="display: flex; justify-content: center; align-items: center;">
+        <div class="terminal-window" style="display: block; max-width: 500px; height: auto; padding: 20px; text-align: left;">
+            <div class="terminal-line"><span class="prompt">></span> cd /Exclusivités Audio/</div>
+            <div class="terminal-line">dossier non trouvé.</div>
+            <div class="terminal-line">Message : tokébek icitte! la page est en construction 🛠️</div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="copyright">
+        © 2025 Grosse-Tête. Tous droits réservés.
+    </footer>
+
+    <a href="https://buymeacoffee.com/grossetete" 
+        class="tip-cup-button" 
+        id="tip-cup" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        <img src="assets/items/logoBMC-cup.png" class="no-invert" alt="Soutenir">
+    </a>
+
+    <!-- JS Scripts -->
+    <script src="js/menu.js" defer></script>
+</body>
+</html>

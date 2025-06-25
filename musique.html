@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grosse-Tête - Musique</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="desktop">
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Minimal Header -->
+  <header class="header">
+    <a href="index.html" class="logo-link" id="logo-link">
+        <img src="assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+    </a>
+    
+    <div class="menu-container invert">
+        <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+        <ul class="menu-dropdown" id="menu-dropdown">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="musique.html">Musique</a></li>
+          
+            <li class="has-submenu">
+              <button class="submenu-toggle">InnerVerse ▸</button>
+              <ul class="submenu">
+                <li><a href="bioartiste.html">Biographie d'artiste</a></li>
+                <li><a href="ecrits.html">Écrits</a></li>
+                <li><a href="exclu.html">Exclusivités audio</a></li>
+                <li><a href="quebecness.html">Québec selon Ness</a></li>
+              </ul>
+            </li>
+          
+            <li><a href="contact.html">Contact</a></li>
+            <li><button id="theme-toggle">Thème clair</button></li>
+        </ul>
+    </div>
+  </header>
+
+  <!-- Content Area -->
+  <main class="desktop-icons musique-grid">
+    <div class="audio-icon">
+      <img src="assets/items/soundfile.png" alt="Video" class="icon-img">
+      <span class="icon-label">Il était une fois (A cappella)</span>
+      <span class="icon-label">Ness Grosse-Tête x Pépin</span>
+      <div class="audio-player">
+        <iframe width="300" height="170" src="https://www.youtube.com/embed/gM3S-zZUPYg?si=Ak6ah-eupjS_uSUZ" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="audio-icon">
+      <img src="assets/items/soundfile.png" alt="Video" class="icon-img">
+      <span class="icon-label">Pozé</span>
+      <span class="icon-label">Ness Grosse-Tête x Don Troublesom</span>
+      <div class="audio-player">
+        <iframe width="300" height="170" src="https://www.youtube.com/embed/q5fDNgJacNc?si=_y-qlQWIyGgKyX8Y" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="audio-icon">
+      <img src="assets/items/soundfile.png" alt="Video" class="icon-img">
+      <span class="icon-label">J'veux toi</span>
+      <span class="icon-label">Ness Grosse-Tête</span>
+      <div class="audio-player">
+        <iframe width="300" height="170" src="https://www.youtube.com/embed/383hMz305RA?si=eiQnu4ZYawu2Eq8t" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="audio-icon">
+      <img src="assets/items/soundfile.png" alt="Video" class="icon-img">
+      <span class="icon-label">Monsieur l'agent</span>
+      <span class="icon-label">Ness Grosse-Tête x Don Troublesom x Maitre Ed</span>
+      <div class="audio-player">
+        <iframe width="300" height="170" src="https://www.youtube.com/embed/D__gE9bHW1g?si=CBYfGY3SAFBmLCxh" 
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+      </div>
+    </div>
+    
+    <!-- Repeat for more videos -->
+  </main>
+
+  <footer class="copyright">
+    © 2023 Grosse-Tête. Tous droits réservés.
+  </footer>
+
+  <a href="https://buymeacoffee.com/grossetete" 
+        class="tip-cup-button" 
+        id="tip-cup" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        <img src="assets/items/logoBMC-cup.png" alt="Soutenir">
+  </a>
+
+  <!-- Scripts -->
+  <script src="js/menu.js" defer></script>
+</body>
+</html>
