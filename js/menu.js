@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         isMenuOpen = false;
         menuContainer.classList.remove('active');
         menuButton.setAttribute('aria-expanded', 'false');
+
+        // Also close all submenus
+        dropdown.querySelectorAll('.has-submenu').forEach(item => {
+            item.classList.remove('submenu-open');
+        });
     }
 
     function toggleTheme() {
@@ -100,6 +105,33 @@ document.addEventListener('DOMContentLoaded', () => {
     menuButton.setAttribute('aria-expanded', 'false');
     menuButton.setAttribute('aria-controls', 'menu-dropdown');
 
+    // Submenu toggle logic
+    const submenuToggles = dropdown.querySelectorAll('.submenu-toggle');
+
+    submenuToggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const parent = toggle.closest('.has-submenu');
+            const isOpen = parent.classList.contains('submenu-open');
+
+            // Close all submenus first
+            dropdown.querySelectorAll('.has-submenu').forEach(item => {
+                item.classList.remove('submenu-open');
+            });
+
+            if (!isOpen) {
+                parent.classList.add('submenu-open');
+            }
+        });
+    });
+
+    // Clicking outside closes submenus
+    document.addEventListener('click', () => {
+        dropdown.querySelectorAll('.has-submenu').forEach(item => {
+            item.classList.remove('submenu-open');
+        });
+    });
+
     // Tip Cup Wiggle Logic
     if (!document.body.classList.contains('no-tip')) {
         const tipCup = document.getElementById('tip-cup');
@@ -112,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // First wiggle immediately on load
             triggerWiggle();
 
-            // Then every 2 minutes
+            // Then every 10 seconds
             setInterval(triggerWiggle, 1 * 10 * 1000);
         }
     }
