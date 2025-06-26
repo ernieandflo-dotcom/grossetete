@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grosse-Tête - Bureau</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="desktop">
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Minimal Header -->
+    <header class="header">
+        <a href="index.html" class="logo-link" id="logo-link">
+            <img src="assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+        </a>
+        
+        <div class="menu-container invert">
+            <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+            <ul class="menu-dropdown" id="menu-dropdown">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="musique.html">Musique</a></li>
+              
+                <li class="has-submenu">
+                  <button class="submenu-toggle">InnerVerse ▸</button>
+                  <ul class="submenu">
+                    <li><a href="bioartiste.html">Biographie d'artiste</a></li>
+                    <li><a href="ecrits.html">Écrits</a></li>
+                    <li><a href="exclu.html">Exclusivités audio</a></li>
+                    <li><a href="quebecness.html">Québec selon Ness</a></li>
+                  </ul>
+                </li>
+              
+                <li><a href="contact.html">Contact</a></li>
+                <li><button id="theme-toggle">Thème clair</button></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Desktop Icons Grid -->
+    <main class="desktop-icons">
+        <!-- Main Project Icon -->
+        <a href="projetmain.html" class="icon" id="project-icon">
+            <img src="assets/items/webfile.png" alt="Projet">
+            <span>Projet en cours</span>
+        </a>
+        
+        <!-- Terminal Icon -->
+        <div class="icon" id="terminal-icon">
+            <img src="assets/items/terminal.png" class="no-invert" alt="Terminal">
+            <span>InnerVerse</span>
+        </div>
+    </main>
+
+    <!-- Terminal Window -->
+    <aside class="terminal-window" id="terminal-window" aria-hidden="true">
+        <div class="window-header">
+            <span>InnerVerse Terminal</span>
+            <button class="close-btn" aria-label="Fermer">×</button>
+        </div>
+        <div class="terminal-content" id="terminal-content"></div>
+    </aside>
+
+    <!-- Copyright Notice -->
+    <footer class="copyright">
+        © 2023 Grosse-Tête. Tous droits réservés.
+    </footer>
+
+    <a href="https://buymeacoffee.com/grossetete" 
+        class="tip-cup-button no-invert" 
+        id="tip-cup" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        <img src="assets/items/logoBMC-cup.png" alt="Soutenir">
+    </a>
+
+    <!-- JavaScript Files -->
+    <script src="js/desktop.js" defer></script>
+    <script src="js/terminal.js" defer></script>
+    <script src="js/menu.js" defer></script>
+</body>
+</html>
