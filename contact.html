@@ -21,7 +21,6 @@
         <ul class="menu-dropdown" id="menu-dropdown">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="musique.html">Musique</a></li>
-          
             <li class="has-submenu">
               <button class="submenu-toggle">InnerVerse ▸</button>
               <ul class="submenu">
@@ -31,7 +30,6 @@
                 <li><a href="quebecness.html">Québec selon Ness</a></li>
               </ul>
             </li>
-          
             <li><a href="contact.html">Contact</a></li>
             <li><button id="theme-toggle">Thème clair</button></li>
         </ul>
@@ -52,7 +50,15 @@
     <!-- Section Formulaire -->
     <section class="form-section">
       <h2>Me contacter</h2>
-      <form action="#" method="POST">
+      <form action="https://formsubmit.co/ai.precook416@passinbox.com" method="POST">
+        <!-- Bot protection -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- Redirect (optional) -->
+        <input type="hidden" name="_next" value="https://grossetete.ca/merci.html">
+        <!-- Email subject -->
+        <input type="hidden" name="_subject" value="Nouveau message via formulaire Grosse-Tête">
+
         <label for="name">Nom :</label>
         <input type="text" id="name" name="name" required placeholder="Ton nom complet" />
 
@@ -77,24 +83,25 @@
         </select>
 
         <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="6" placeholder="Écris ton message ici..."></textarea>
+        <textarea id="message" name="message" rows="6" required placeholder="Écris ton message ici..."></textarea>
 
         <button type="submit">Envoyer</button>
       </form>
     </section>
   </main>
 
-  <!-- Copyright Notice -->
+  <!-- Copyright -->
   <footer class="copyright">
     © 2023 Grosse-Tête. Tous droits réservés.
   </footer>
 
+  <!-- Tip Cup -->
   <a href="https://buymeacoffee.com/grossetete" 
-        class="tip-cup-button" 
-        id="tip-cup" 
-        target="_blank" 
-        rel="noopener noreferrer">
-        <img src="assets/items/logoBMC-cup.png" alt="Soutenir">
+     class="tip-cup-button" 
+     id="tip-cup" 
+     target="_blank" 
+     rel="noopener noreferrer">
+     <img src="assets/items/logoBMC-cup.png" alt="Soutenir">
   </a>
 
   <script src="js/menu.js"></script>
