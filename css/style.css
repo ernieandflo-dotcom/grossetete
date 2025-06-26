@@ -705,52 +705,68 @@ body.light-theme .tip-cup-button img {
 
 /* SUBMENU STYLES */
 .menu-dropdown .has-submenu {
-    position: relative;
-  }
-  
-  .menu-dropdown .has-submenu .submenu-toggle {
-    background: none;
-    border: none;
-    font: inherit;
-    color: inherit;
-    text-align: left;
-    width: 100%;
-    cursor: pointer;
-    padding: 0;
-  }
-  
-  .menu-dropdown .submenu {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    list-style: none;
-    padding: 6px 0;
-    min-width: 180px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-  }
-  
-  .menu-dropdown .submenu li {
-    padding: 6px 16px;
-  }
-  
-  .menu-dropdown .submenu li a {
-    color: white;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .menu-dropdown .submenu li:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  
-  .menu-dropdown .has-submenu:hover .submenu {
-    display: block;
-  }
-  
+  position: relative;
+}
+
+.menu-dropdown .has-submenu .submenu-toggle {
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  padding: 6px 16px;
+}
+
+.menu-dropdown .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  list-style: none;
+  padding: 6px 0;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+.menu-dropdown .submenu li {
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+
+.menu-dropdown .submenu li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-dropdown .submenu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Show submenu when toggled */
+.menu-dropdown .has-submenu.submenu-open .submenu {
+  display: block;
+}
+
+/* Light theme compatibility */
+body.light-theme .menu-dropdown .submenu {
+  background-color: white;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+body.light-theme .menu-dropdown .submenu li a {
+  color: black;
+}
+
+body.light-theme .menu-dropdown .submenu li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
   /* LIGHT THEME override for submenu */
   body.light-theme .menu-dropdown .submenu {
     background-color: white;
@@ -765,6 +781,7 @@ body.light-theme .tip-cup-button img {
     background-color: rgba(0, 0, 0, 0.05);
   }
   
+
   /* Text pages */
   /* Contact page */
 .text-page {
