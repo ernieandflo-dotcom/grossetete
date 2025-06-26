@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet – Vulgaire (Single)</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="desktop">
+  <!-- Noise Overlay -->
+  <div class="noise-overlay"></div>
+
+  <!-- Minimal Header -->
+  <header class="header">
+    <a href="../index.html" class="logo-link" id="logo-link">
+        <img src="../assets/items/logoGT.png" alt="Grosse-Tête" class="logo">
+    </a>
+    
+    <div class="menu-container invert">
+        <button class="menu-button" id="menu-button" aria-label="Menu">⋮</button>
+        <ul class="menu-dropdown" id="menu-dropdown">
+            <li><a href="../index.html">Acceuil</a></li>
+            <li><a href="../musique.html">Musique</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><button id="theme-toggle">Thème clair</button></li>
+        </ul>
+    </div>
+  </header>
+
+  <main class="desktop-icons">
+    <!-- Fichier audio : icône cliquable -->
+    <div class="icon audio-icon" style="left: 25%; top: 40%; transform: translate(-50%, -50%);">
+        <img src="../assets/items/soundfile.png" alt="Audio" class="invert toggle-audio">
+        <span>vulgaire_extrait.mp3</span>
+        <audio class="audio-player" controls style="display: none; margin-top: 6px;">
+          <source src="../assets/audio/Vulgaire_snippet.mp3" type="audio/mpeg">
+          Ton navigateur ne supporte pas l'élément audio.
+        </audio>
+    </div>
+
+
+    <!-- Visual Poetry (extrait stylisé manuellement) -->
+    <div class="visual-poetry">
+      <span class="poem-line" style="top: 5%; left: 30%;">L'homme</span>
+      <span class="poem-line" style="top: 10%; left: 25%;">Qui plante</span>
+      <span class="poem-line" style="top: 15%; left: 30%;">Un arbre</span>
+      <span class="poem-line" style="top: 25%; left: 45%;">!!!SACHANT!!!</span>
+      <span class="poem-line" style="top: 35%; left: 55%;">Qu'il ne pourra jamais</span>
+      <span class="poem-line" style="top: 40%; left: 50%;">En apprécier son ombre</span>
+      <span class="poem-line" style="top: 50%; left: 65%;">!!!A ENFIN!!!</span>
+      <span class="poem-line" style="top: 70%; left: 40%;">!!!COMMENCÉ!!!</span>
+      <span class="poem-line" style="top: 85%; left: 45%;">À COMPRENDRE</span>
+      <span class="poem-line" style="top: 90%; left: 45%;">L'ESSENCE MÊME</span>
+      <span class="poem-line" style="top: 95%; left: 50%;">De la !!!VIIIIIIIIIIEEEEEE!!!</span>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="copyright">
+    © 2023 Grosse-Tête. Tous droits réservés.
+  </footer>
+
+  <a href="https://buymeacoffee.com/grossetete" 
+        class="tip-cup-button" 
+        id="tip-cup" 
+        target="_blank" 
+        rel="noopener noreferrer">
+        <img src="../assets/items/logoBMC-cup.png" alt="Soutenir">
+  </a>
+
+  <!-- JS -->
+  <script src="../js/menu.js" defer></script>
+  <script src="../js/desktop.js" defer></script>
+</body>
+</html>
