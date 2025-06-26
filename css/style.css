@@ -836,3 +836,36 @@ body.light-theme .toggle-section-button:hover {
   background-color: #111;
   color: #fff;
 }
+
+/* Merci email page */
+.merci-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* light border for dark theme */
+  border-radius: 8px;
+}
+
+.merci-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.text-title {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  color: var(--text-title-color, #ddd);
+}
+
+body.light-theme .text-title {
+  color: #111;
+  text-shadow: none;
+}
+
+body.light-theme .merci-section {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
