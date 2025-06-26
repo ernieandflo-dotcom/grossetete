@@ -869,3 +869,23 @@ body.light-theme .text-title {
 body.light-theme .merci-section {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
+
+/* Scial links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem auto;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
