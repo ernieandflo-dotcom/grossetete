@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'Écrits': 'ecrits.html',
         'Exclusivités Audio': 'exclu.html',
         'Québec selon Ness': 'quebecness.html',
-        'studio nord (lespot)': 'https://ernieandflo-dotcom.github.io/studionord/' // Replace with actual external URL
+        'studio nord (lespot)': // 'https://ernieandflo-dotcom.github.io/studionord/' // // Replace with actual external URL
     };
 
     let isTerminalActive = false;
